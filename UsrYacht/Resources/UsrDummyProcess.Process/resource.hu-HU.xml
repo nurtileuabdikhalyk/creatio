@@ -2,7 +2,7 @@
 <Resources Culture="hu-HU">
 	<Group Type="String">
 		<Items>
-			<Item Name="Caption" Value="Dummy Process" />
+			<Item Name="Caption" Value="DummyProcess" />
 		</Items>
 	</Group>
 </Resources>
