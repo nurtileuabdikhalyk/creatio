@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "3912eec9-a3fa-4f16-bee8-f70c59896cdc",
+    "Name": "UsrAveragePriceCalc2",
+    "ModifiedOnUtc": "\/Date(1776165232000)\/",
+    "ManagerName": "ProcessSchemaManager",
+    "Caption": "Yacht Average Price Calc2",
+    "DependsOn": []
+  }
+}

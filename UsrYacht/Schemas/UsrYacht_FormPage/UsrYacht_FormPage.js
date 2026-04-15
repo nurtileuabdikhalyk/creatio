@@ -3,6 +3,22 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
 				"operation": "merge",
+				"name": "CardContentWrapper",
+				"values": {
+					"padding": {
+						"left": "small",
+						"right": "small",
+						"top": "none",
+						"bottom": "none"
+					},
+					"visible": true,
+					"color": "transparent",
+					"borderRadius": "none",
+					"alignItems": "stretch"
+				}
+			},
+			{
+				"operation": "merge",
 				"name": "Tabs",
 				"values": {
 					"styleType": "default",
@@ -13,6 +29,13 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"underlineSelectedTabColor": "auto",
 					"headerBackgroundColor": "auto",
 					"allowToggleClose": true
+				}
+			},
+			{
+				"operation": "merge",
+				"name": "GeneralInfoTab",
+				"values": {
+					"iconPosition": "only-text"
 				}
 			},
 			{
@@ -60,10 +83,49 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "ButtonPushMe",
+				"name": "Button_t0jz0jz",
 				"values": {
 					"type": "crt.Button",
-					"caption": "#ResourceString(ButtonPushMe_caption)#",
+					"caption": "#ResourceString(Button_t0jz0jz_caption)#",
+					"color": "default",
+					"disabled": false,
+					"size": "large",
+					"iconPosition": "only-text",
+					"visible": true,
+					"menuItems": [],
+					"clickMode": "menu"
+				},
+				"parentName": "ActionButtonsContainer",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "MenuItem_s799ax2",
+				"values": {
+					"type": "crt.MenuItem",
+					"caption": "#ResourceString(MenuItem_s799ax2_caption)#",
+					"visible": true,
+					"clicked": {
+						"request": "crt.RunBusinessProcessRequest",
+						"params": {
+							"processName": "UsrAveragePriceCalc",
+							"processRunType": "RegardlessOfThePage",
+							"saveAtProcessStart": true,
+							"showNotification": true
+						}
+					}
+				},
+				"parentName": "Button_t0jz0jz",
+				"propertyName": "menuItems",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "PushMe",
+				"values": {
+					"type": "crt.Button",
+					"caption": "#ResourceString(PushMe_caption)#",
 					"color": "default",
 					"disabled": false,
 					"size": "large",
@@ -71,13 +133,13 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"visible": true,
 					"icon": "copilot-rewrite-friendly-icon",
 					"clicked": {
-						"request": "crt.CancelRecordChangesRequest"
+						"request": "usr.PushButtonRequest"
 					},
 					"clickMode": "default"
 				},
 				"parentName": "ActionButtonsContainer",
 				"propertyName": "items",
-				"index": 0
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -384,7 +446,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "UsrTicketPrice",
+				"name": "TicketPrice",
 				"values": {
 					"layoutConfig": {
 						"column": 1,
@@ -393,8 +455,8 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						"rowSpan": 1
 					},
 					"type": "crt.NumberInput",
-					"label": "$Resources.Strings.PDS_UsrTicketPrice_2u5lbpo",
-					"control": "$PDS_UsrTicketPrice_2u5lbpo",
+					"label": "$Resources.Strings.PDS_UsrTicketPrice_er0flsk",
+					"control": "$PDS_UsrTicketPrice_er0flsk",
 					"readonly": false,
 					"placeholder": "",
 					"labelPosition": "auto",
@@ -519,7 +581,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 							"path": "PDS.UsrNumber"
 						}
 					},
-					"PDS_UsrTicketPrice_2u5lbpo": {
+					"PDS_UsrTicketPrice_er0flsk": {
 						"modelConfig": {
 							"path": "PDS.UsrTicketPrice"
 						}
@@ -569,9 +631,9 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 				handler: async (request, next) => {
 					console.log("Button works...");
 					Terrasoft.showInformation("My button was pressed.");
-					var price = await request.$context.PDS_UsrPrice_7egsyjs;
+					var price = await request.$context.PDS_UsrPrice_3w7b69y;
 					console.log("Price = " + price);
-					request.$context.PDS_UsrComment_uq0z3aq = "comment from JS code!";
+					request.$context.PDS_UsrComment_gon8n1b = "comment from JS code!";
 					/* Call the next handler if it exists and return its result. */
 					return next?.handle(request);
 				}
